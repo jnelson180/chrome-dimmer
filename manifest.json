@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+
+    "name": "Dimmer",
+    "description": "This extension allows the user to dim the current page.",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Press CTRL+Space to toggle dimmer!"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "commands": {
+        "dim" : {
+            "suggested_key": {
+                "default": "Ctrl+Space" 
+            },
+            "description": "Toggle dimmer"
+        }
+    },
+    "background": {
+        "scripts": ["background.js"]
+    }
+}
