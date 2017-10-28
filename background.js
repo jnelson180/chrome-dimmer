@@ -4,11 +4,11 @@ let dim = false;
 chrome.commands.onCommand.addListener(function (command) {
     // var elements = document.getElementsByTagName("*");
     if (command === "dim") {
-        if (dim || document.body.style.backgroundColor == "rgb(160, 160, 160)") {
+        if (dim || document.body.style.backgroundColor == "rgb(120, 120, 125)") {
             changeBackgroundColor("rgb(255, 255, 255)");
             dim = false;
         } else {
-            changeBackgroundColor("rgb(160, 160, 160)");
+            changeBackgroundColor("rgb(120, 120, 125)");
             dim = true;
         }
     }
@@ -18,7 +18,7 @@ function changeBackgroundColor(currentColor) {
     var script;
 
     // check current background color passed into function
-    if (currentColor === "rgb(160, 160, 160)") {
+    if (currentColor === "rgb(120, 120, 125)") {
         // get each element on the page and change its background color to dim
         // then lighten any text elements that are too dark
         script = `(function() {
@@ -33,10 +33,10 @@ function changeBackgroundColor(currentColor) {
                         var rgbOnly = fontColor.slice(0, -1).split("(")[1].split(",");
                         var rgbSum = rgbOnly.reduce((a, b) => Number(a) + Number(b));
 
-                        nodes[i].style.backgroundColor = "rgb(160, 160, 160)";
+                        nodes[i].style.backgroundColor = "rgb(120, 120, 125)";
 
                         // deal with fonts that are too dark
-                        if (rgbSum < 300) {
+                        if (rgbSum < 341) {
                             nodes[i].style.color = "#fff";
                         }
                 }                  
@@ -60,7 +60,7 @@ function changeBackgroundColor(currentColor) {
                         nodes[i].style.backgroundColor = "rgb(255, 255, 255)";
                         
                         // deal with fonts that are too light
-                        if (rgbSum > 500) {
+                        if (rgbSum > 340) {
                             nodes[i].style.color = "#000";
                         }                    
 
